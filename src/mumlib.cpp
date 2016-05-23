@@ -369,7 +369,7 @@ namespace mumlib {
 
     void Mumlib::disconnect() {
         if (not impl->externalIoService) {
-            impl->ioService.reset();
+            impl->ioService.stop();
         }
         if (impl->transport.getConnectionState() != ConnectionState::NOT_CONNECTED) {
             impl->transport.disconnect();
